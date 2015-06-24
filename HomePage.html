@@ -1,3 +1,4 @@
+<html>
  <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
@@ -8,11 +9,13 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">    
         <!-- jQuery library -->
         <script src="js/jquery.min.js"></script>
+     
 
         <!-- Latest compiled JavaScript -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
-        <title>Track My Trip</title>
+       
+     <title>Track My Trip</title>
          <style type="text/css">
        .grad{
             background: -webkit-linear-gradient(90deg,#5BC199,white) !important; /* For Safari 5.1 to 6.0 */
@@ -53,17 +56,40 @@
       background-color: #f9f9f9;
   }
     </style>
+     
 </head>
+
+
 <body class="grad">
       <div class="bg"></div>
             <div class="jumbotron">
               <h1 style="color:white !important;">Test This Page</h1>
                 <p>Never Miss a Journey</p>
               </div>
-    <div class="center-block" style="text-align:center;border-style:inherit;" >
-        Welcome
+    <div class="center-block" id="deviceproperties" style="text-align:center;border-style:inherit;" >
+        Loading Device Properties...
         </div>
+    <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
     
+    <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+            document.addEventListener("deviceready", onDeviceReady, false);
 
+            // device APIs are available
+            //
+            function onDeviceReady() {
+                var element = document.getElementById('deviceProperties');
+                element.innerHTML = 'Device Model: ' + device.model + '<br />' +
+                                    'Device Cordova: ' + device.cordova + '<br />' +
+                                    'Device Platform: ' + device.platform + '<br />' +
+                                    'Device UUID: ' + device.uuid + '<br />' +
+                                    'Device Version: ' + device.version + '<br />';
+            }
+        </script>
 </body>
 </html>
