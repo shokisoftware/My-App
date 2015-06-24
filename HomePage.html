@@ -59,7 +59,6 @@
      
 </head>
 
-
 <body class="grad">
       <div class="bg"></div>
             <div class="jumbotron">
@@ -77,12 +76,15 @@
     <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-            app.initialize();
-            document.addEventListener("deviceready", onDeviceReady, false);
-
             // device APIs are available
-            //
+            
+            
+            app.initialize();
+            
+            document.addEventListener("deviceready", onDeviceReady, false);
             function onDeviceReady() {
+                alert(device.model + " " + device.cordova + " " + device.platform);
+
                 var element = document.getElementById('deviceProperties');
                 element.innerHTML = 'Device Model: ' + device.model + '<br />' +
                                     'Device Cordova: ' + device.cordova + '<br />' +
@@ -90,6 +92,9 @@
                                     'Device UUID: ' + device.uuid + '<br />' +
                                     'Device Version: ' + device.version + '<br />';
             }
+            onDeviceReady();
+
+            
         </script>
 </body>
 </html>
